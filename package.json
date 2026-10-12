@@ -2,20 +2,26 @@
   "name": "bb-plugin-quiet-automations",
   "version": "0.1.0",
   "type": "module",
-  "description": "Stop push notifications for automation threads that finish normally. Failed runs still notify.",
+  "description": "Quiet finished automation runs: stop their push notifications, then archive them once they stay idle.",
   "engines": {
-    "bb": ">=0.42",
-    "bbPluginSdk": ">=0.4.47"
+    "bb": ">=0.46",
+    "bbPluginSdk": ">=0.6.37"
   },
   "bb": {
     "name": "Quiet Automations",
-    "description": "Mark automation threads read when they finish normally, so Push notifications only reports failures and input requests.",
+    "description": "Mark automation threads read when they finish normally, so Push notifications only reports failures and input requests. Archive finished runs after they stay idle, so the thread list stays short.",
     "branding": {
       "icon": "./assets/icon.svg"
     },
     "server": "./server.ts"
   },
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --no-warnings --test src/*.test.ts"
+  },
+  "devDependencies": {
+    "@get-bb/plugin-sdk": "0.6.37",
+    "@types/node": "^22.20.5",
+    "typescript": "^5.9.3"
   }
 }

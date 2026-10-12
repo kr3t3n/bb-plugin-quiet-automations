@@ -12,9 +12,11 @@
       "node"
     ],
     "noEmit": true,
-    "skipLibCheck": false
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true
   },
   "include": [
-    "server.ts"
+    "server.ts",
+    "src/**/*.ts"
   ]
 }
